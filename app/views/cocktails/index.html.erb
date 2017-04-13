@@ -3,10 +3,17 @@
 
   <ul>
    <% @cocktails.each do |cocktail|%>
-    <h2><%=cocktail.name%></h2>
-
+    <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+      <ul class="list-inline ingredient-overview">
+      Main ingredients:
+        <% cocktail.doses.each do |dose|%>
+          <li><%=dose.ingredient.name%>,</li>
+        <% end %>
+      </ul>
    <% end %>
   </ul>
 
+<div class="add-dose">
 <%= link_to '<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>Add a cocktail'.html_safe, new_cocktail_path, :class => "link-edit" %>
+</div>
 </div>
