@@ -12,4 +12,10 @@ ingredients[:drinks].each do |ing|
   Ingredient.create(name: ing[:strIngredient1])
 end
 
+Cocktail.new(name: "Caipirinha")
 
+cocktails = ["Old Fashioned","Martinez","Martini","Manhattan","Brooklyn","Daiquiri","Margarita","Sidecar","French 75","Bloody Mary","Irish Coffee","Jack Rose","Negroni","Boulevardier","Sazerac","Ramos Gin Fizz","Mint Julep","Whiskey Sour","Mai Tai","Planter's Punch","Pisco Sour","Cosmopolitan","Tom Collins","Last Word"]
+
+cocktails.each do |cocktail|
+  Cocktail.create(name: cocktail)
+end

@@ -34,8 +34,15 @@
   color: grey;
 }
 
-.add-dose{
-  margin-top: 60px;
-  background: lightgrey;
-  padding: 20px;
+.bg-lightgrey{
+  background: #F1F1F1;
+  padding: 5px;
+}
+
+
+
+.myflex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
