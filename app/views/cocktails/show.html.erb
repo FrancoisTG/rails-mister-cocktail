@@ -1,21 +1,28 @@
 <div class="container">
   <h1><%=@cocktail.name%></h1>
-  <h2>Cocktail recipe:</h2>
 
-  <ul>
-    <% @cocktail.doses.each do |dose|%>
-      <li>
-        <%=dose.description%>: <%=dose.ingredient.name%>
-      </li>
-    <% end %>
-  </ul>
-
-
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <h2>Cocktail recipe:</h2>
+    <ul>
+      <% @cocktail.doses.each do |dose|%>
+        <li>
+          <%=dose.description%>: <%=dose.ingredient.name%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <%= cl_image_tag @cocktail.photo.url(:standard) %>
+  </div>
+</div>
+<hr>
 <div class="add-dose">
 <h4>Add a new dose</h4>
   <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.input :description, placeholder: "Dose description: (ml, cup, ...)", label: false %>
-    <%= f.input :ingredient_id, prompt: "Ingredient", class: "prompt-style", label: false, collection: Ingredient.all.collect {|c| [c.name, c.id]} %>
+    <%= f.association :ingredient, prompt: "Ingredient", collection: Ingredient.all.reorder('name'), label: false %>
     <%= f.submit class: "btn btn-default" %>
   <% end %>
 

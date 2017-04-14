@@ -1,25 +1,39 @@
 <div class="container">
-  <div class="myflex bg-lightgrey">
+  <div class="myflex banner">
     <div><h1>Cocktail list</h1></div>
     <div>
-      <%= link_to '<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>Add a cocktail'.html_safe, new_cocktail_path, :class => "link-edit" %>
+      <%= link_to '<i class="fa fa-glass" aria-hidden="true"></i>&nbsp;Add a cocktail'.html_safe, new_cocktail_path, :class => "link-edit" %>
     </div>
   </div>
 
 
 <div class="row">
-   <% @cocktails.each do |cocktail|%>
+  <% @cocktails.each do |cocktail|%>
     <div class="col-xs-12 col-sm-6">
-      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-      <ul class="list-inline ingredient-overview">
-      Main ingredients:
-        <% cocktail.doses.each do |dose|%>
-          <li><%=dose.ingredient.name%>,</li>
-        <% end %>
-      </ul>
-      <hr>
+    <div class="card">
+        <div>
+          <% if cocktail.photo.url.nil? %>
+            <%= image_tag 'placeholder.png' %>
+          <% else %>
+            <%= cl_image_tag cocktail.photo.url(:preview) %>
+          <% end %>
+        </div>
+        <div class="cardinfo">
+          <div><h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2></div>
+
+          <div>
+           <ul class="list-inline ingredient-overview">
+            <p>Main ingredients:</p>
+              <% cocktail.doses.each do |dose|%>
+                <li><p><%=dose.ingredient.name%>,</p></li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
+        </div>
     </div>
-   <% end %>
+  <% end %>
 
 </div>
 </div>

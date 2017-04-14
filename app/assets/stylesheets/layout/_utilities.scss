@@ -29,7 +29,7 @@
   color: grey;
 }
 
-.prompt-style{
+#prompt-style{
   font-style: italic;
   color: grey;
 }
@@ -42,7 +42,28 @@
 
 
 .myflex{
+  font-family: 'Indie Flower', cursive;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+}
+
+.myflex h1{
+  font-family: 'Indie Flower', cursive;
+}
+
+.link-edit{
+  text-decoration: none;
+  color: white;
+}
+
+.banner{
+  color: white;
+  background-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.09) 50%, rgba(0,0,0,1) 100%), image_url('cocktails.jpg');
+  width: 100%;
+}
+
+h1 {
+font-family: 'Indie Flower', cursive;
 }

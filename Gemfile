@@ -7,6 +7,13 @@ end
 
 ruby '2.3.3'
 
+# Services key manager
+gem 'figaro'
+
+# photo upload
+gem 'cloudinary'
+gem 'carrierwave'
+
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'

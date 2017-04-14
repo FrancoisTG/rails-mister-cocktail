@@ -7,7 +7,6 @@ class DosesController < ApplicationController
 
   def create
     @dose = Dose.new(review_params)
-    @dose.ingredient = Ingredient.find(params[:dose][:ingredient_id])
     @dose.cocktail = Cocktail.find(params[:cocktail_id])
 
     if @dose.save
@@ -31,7 +30,7 @@ class DosesController < ApplicationController
   def review_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:dose).permit(:description)
+    params.require(:dose).permit(:description, :ingredient_id)
   end
 
 end
